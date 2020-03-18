@@ -8,17 +8,17 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("http://testfasttrackit.info/selenium-test/customer/account/index/")
 public class MyAccountPage extends PageObject {
 
-    @FindBy (css = ".success-msg span")
+    @FindBy(css = ".success-msg span")
     private WebElementFacade registerMessageParagraph;
 
     @FindBy(css = ".hello strong")
     private WebElementFacade welcomeMessageParagraph;
 
-    public String getRegisterMessage(){
+    public String getRegisterMessage() {
         return registerMessageParagraph.getText();
     }
 
-    public String getWelcomeMessage(){
+    public String getWelcomeMessage() {
         return welcomeMessageParagraph.getText();
     }
 }

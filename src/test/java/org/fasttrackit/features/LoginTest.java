@@ -17,10 +17,10 @@ public class LoginTest {
     private LoginSteps loginSteps;
 
     @Test
-    public void testValidLogin(){
+    public void testValidLogin() {
         loginSteps.navigateToLoginPage();
-        loginSteps.setCredentials("vladserenit@mailinator.com","abcdef");
+        loginSteps.setCredentials("vladregister1@mailinator.com", "abcdef");
         loginSteps.clickLogin();
-        loginSteps.checkLoggedIn("Hello, ");
+        loginSteps.checkLoggedIn("Hello, Vlad Lucian Dinu!");
     }
 }
