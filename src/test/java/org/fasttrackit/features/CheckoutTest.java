@@ -39,7 +39,7 @@ public class CheckoutTest {
         loginSteps.login("vladregister1@mailinator.com",
                 "abcdef",
                 "Hello, Vlad Lucian Dinu!");
-        productPage.open();
+        productSteps.navigateToProductPage();
         productSteps.addProductToCart();
         cartSteps.navigateToCheckoutPage();
         cartSteps.prepareOrder();

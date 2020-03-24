@@ -3,6 +3,7 @@ package org.fasttrackit.features;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.fasttrackit.pages.ProductsGridPage;
 import org.fasttrackit.pages.ProductPage;
 import org.fasttrackit.steps.LoginSteps;
 import org.fasttrackit.steps.ProductSteps;
@@ -26,12 +27,15 @@ public class CartTest {
     @Steps
     private ProductPage productPage;
 
+    @Steps
+    private ProductsGridPage productsGridPage;
+
     @Test
     public void addToCart() {
         loginSteps.login("vladregister1@mailinator.com",
                 "abcdef",
                 "Hello, Vlad Lucian Dinu!");
-        productPage.open();
+        productSteps.navigateToProductPage();
         productSteps.addProductToCart();
         productSteps.checkAddToCart("Sullivan Sport Coat was added to your shopping cart.");
     }

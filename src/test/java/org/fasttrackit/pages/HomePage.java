@@ -4,6 +4,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 @DefaultUrl("http://testfasttrackit.info/selenium-test/")
 public class HomePage extends PageObject {
@@ -17,6 +21,12 @@ public class HomePage extends PageObject {
     @FindBy(css = ".links a[title='Register']")
     private WebElementFacade registerLink;
 
+    @FindBy (css = ".nav-2.parent > a")
+    private WebElementFacade menCategory;
+
+    @FindBy(css = ".nav-2-5.last > a")
+    private WebElementFacade blazers;
+
     public void clickRegister() {
         clickOn(registerLink);
     }
@@ -27,6 +37,15 @@ public class HomePage extends PageObject {
 
     public void clickLogin() {
         clickOn(loginLink);
+    }
+
+    public void navigateToProductsGridPage() {
+        Actions action = new Actions(getDriver());
+//        WebElement category = getDriver().findElement(By.cssSelector(".nav-2.parent > a"));
+        action.moveToElement(menCategory).build().perform();
+//        WebElement blazer = getDriver().findElement(By.cssSelector(".nav-2-5.last > a"));
+        action.moveToElement(blazers).build().perform();
+        clickOn(blazers);
     }
 
 }
