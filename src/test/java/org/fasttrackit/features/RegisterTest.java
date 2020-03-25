@@ -1,20 +1,11 @@
 package org.fasttrackit.features;
 
-import net.serenitybdd.core.Serenity;
-import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrackit.steps.RegisterSteps;
+import org.fasttrackit.utils.Init;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
 
-@RunWith(SerenityRunner.class)
-
-public class RegisterTest {
-
-    @Managed(uniqueSession = true)
-    private WebDriver driver;
+public class RegisterTest extends Init {
 
     @Steps
     private RegisterSteps registerSteps;

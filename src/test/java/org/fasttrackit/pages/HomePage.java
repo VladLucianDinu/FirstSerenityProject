@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 @DefaultUrl("http://testfasttrackit.info/selenium-test/")
 public class HomePage extends PageObject {
 
@@ -21,11 +23,17 @@ public class HomePage extends PageObject {
     @FindBy(css = ".links a[title='Register']")
     private WebElementFacade registerLink;
 
-    @FindBy (css = ".nav-2.parent > a")
+    @FindBy(css = ".nav-2.parent > a")
     private WebElementFacade menCategory;
 
     @FindBy(css = ".nav-2-5.last > a")
     private WebElementFacade blazers;
+
+    @FindBy(id = "search")
+    private WebElementFacade searchField;
+
+    @FindBy (css = ".input-box > button")
+    private WebElementFacade searchButton;
 
     public void clickRegister() {
         clickOn(registerLink);
@@ -41,11 +49,18 @@ public class HomePage extends PageObject {
 
     public void navigateToProductsGridPage() {
         Actions action = new Actions(getDriver());
+
 //        WebElement category = getDriver().findElement(By.cssSelector(".nav-2.parent > a"));
         action.moveToElement(menCategory).build().perform();
 //        WebElement blazer = getDriver().findElement(By.cssSelector(".nav-2-5.last > a"));
         action.moveToElement(blazers).build().perform();
         clickOn(blazers);
+    }
+
+    public void setSearchField(String searchText) {
+        clickOn(searchField);
+        typeInto(searchField,searchText);
+        clickOn(searchButton);
     }
 
 }
