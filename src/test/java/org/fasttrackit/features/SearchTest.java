@@ -18,6 +18,12 @@ public class SearchTest extends Init {
         searchSteps.checkMatchSearch(searchText);
     }
 
+    @Test
+    public void searchAndSortByAscendingPrice() {
+        String searchText = "bags";
+        searchSteps.searchProduct(searchText);
+        searchSteps.sortByPriceAscending();
+    }
 
 
 }

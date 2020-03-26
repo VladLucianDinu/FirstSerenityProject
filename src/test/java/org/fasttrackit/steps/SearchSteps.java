@@ -23,4 +23,15 @@ public class SearchSteps {
         Assert.assertTrue(foundItem);
 
     }
+
+    @Step
+    public void sortByPriceAscending() {
+        searchResultsPage.clickSortByDropdownButton();
+        searchResultsPage.clickSortArrowAscending();
+    }
+
+    @Step
+    public void getValueFromString() {
+
+    }
 }
