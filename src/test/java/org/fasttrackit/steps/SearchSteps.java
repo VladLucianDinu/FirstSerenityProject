@@ -30,8 +30,4 @@ public class SearchSteps {
         searchResultsPage.clickSortArrowAscending();
     }
 
-    @Step
-    public void getValueFromString() {
-
-    }
 }

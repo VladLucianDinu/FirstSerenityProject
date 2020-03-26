@@ -18,13 +18,6 @@ public class SearchResultsPage extends PageObject {
     @FindBy(css = ".category-products > div.toolbar > div.sorter > div > a")
     private WebElementFacade sortArrow;
 
-    @FindBy(id = "#product-price-372 > span")
-    private WebElementFacade minPriceProduct;
-
-    @FindBy(id = "#product-price-375 > span")
-    private WebElementFacade maxPriceProduct;
-
-
     public boolean matchSearch(String searchText) {
         for (WebElementFacade element : searchResults) {
             String text = element.findBy(By.cssSelector(".product-name a")).getText();
@@ -47,17 +40,9 @@ public class SearchResultsPage extends PageObject {
         }
     }
 
-    public int setMinPriceProduct() {
-        String valueOfString = minPriceProduct.getText();
-       return Integer.parseInt(valueOfString);
+    public int getMinPriceProduct() {
+        String price = searchResults.get(0).findBy(By.cssSelector(".price")).getText();
+        return Integer.parseInt(price);
     }
-
-    public int setMaxPriceProduct(){
-        String valueOfString = maxPriceProduct.getText();
-        return Integer.parseInt(valueOfString);
-    }
-
-
-
 
 }
