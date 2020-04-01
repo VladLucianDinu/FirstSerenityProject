@@ -20,6 +20,13 @@ public class ProductSteps {
     }
 
     @Step
+    public void searchToProductPage(String searchText) {
+        homePage.open();
+        homePage.setSearchField(searchText);
+        searchResultsPage.clickViewDetails();
+    }
+
+    @Step
     public void addProductToCart() {
         productPage.clickColorButton();
         productPage.clickSizeButton();
@@ -33,11 +40,6 @@ public class ProductSteps {
         Assert.assertTrue(checkString);
     }
 
-    @Step
-    public void searchToProductPage(String searchText) {
-        homePage.open();
-        homePage.setSearchField(searchText);
-        searchResultsPage.clickViewDetails();
-    }
+  
 
 }
