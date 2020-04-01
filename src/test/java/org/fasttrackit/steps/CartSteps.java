@@ -9,7 +9,6 @@ import org.junit.Assert;
 
 public class CartSteps {
 
-    private ProductPage productPage;
     private CartPage cartPage;
     private CheckoutPage checkoutPage;
     private OrderPage orderPage;
@@ -33,6 +32,17 @@ public class CartSteps {
     public void checkPrepareOrder(String expected) {
         String message = orderPage.getConfirmMessage();
         Assert.assertEquals(expected, message);
+    }
+
+    @Step
+    public void checkCartSummary() {
+        int sumProducts = cartPage.stringPriceSubtotal();
+        int subTotal = cartPage.setSubtotalValue();
+        float tax = cartPage.setTaxValue();
+        float grandTotal = cartPage.setGrandTotalValue();
+        float productsPlusShipping = sumProducts + tax;
+        Assert.assertEquals(sumProducts, subTotal);
+        Assert.assertEquals(productsPlusShipping,grandTotal,1);
     }
 
 

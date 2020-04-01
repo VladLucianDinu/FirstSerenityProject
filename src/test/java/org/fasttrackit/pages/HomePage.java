@@ -4,12 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
 
 @DefaultUrl("http://testfasttrackit.info/selenium-test/")
 public class HomePage extends PageObject {
@@ -33,7 +28,7 @@ public class HomePage extends PageObject {
     private WebElementFacade searchField;
 
     @FindBy (css = ".input-box > button")
-    private WebElementFacade searchButton;
+    private WebElementFacade searchIcon;
 
     public void clickRegister() {
         clickOn(registerLink);
@@ -60,7 +55,7 @@ public class HomePage extends PageObject {
     public void setSearchField(String searchText) {
         clickOn(searchField);
         typeInto(searchField,searchText);
-        clickOn(searchButton);
+        clickOn(searchIcon);
     }
 
 }

@@ -30,4 +30,9 @@ public class SearchSteps {
         searchResultsPage.clickSortArrowAscending();
     }
 
+    @Step
+    public void assertPriceAscending (){
+        Assert.assertTrue(searchResultsPage.checkPriceAscending());
+    }
+
 }

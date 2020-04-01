@@ -31,7 +31,7 @@ public class CheckoutTest extends Init {
         loginSteps.login("vladregister1@mailinator.com",
                 "abcdef",
                 "Hello, Vlad Lucian Dinu!");
-        productSteps.navigateToProductPage();
+        productSteps.selectProductFromCategory();
         productSteps.addProductToCart();
         cartSteps.navigateToCheckoutPage();
         cartSteps.prepareOrder();

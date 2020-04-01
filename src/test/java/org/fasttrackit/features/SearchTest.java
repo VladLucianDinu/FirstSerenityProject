@@ -23,7 +23,6 @@ public class SearchTest extends Init {
         String searchText = "bags";
         searchSteps.searchProduct(searchText);
         searchSteps.sortByPriceAscending();
+        searchSteps.assertPriceAscending();
     }
-
-
 }

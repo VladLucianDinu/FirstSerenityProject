@@ -18,6 +18,9 @@ public class SearchResultsPage extends PageObject {
     @FindBy(css = ".category-products > div.toolbar > div.sorter > div > a")
     private WebElementFacade sortArrow;
 
+    @FindBy(css = "li:nth-child(1) div > div.actions > a")
+    private WebElementFacade viewDetails;
+
     public boolean matchSearch(String searchText) {
         for (WebElementFacade element : searchResults) {
             String text = element.findBy(By.cssSelector(".product-name a")).getText();
@@ -40,9 +43,21 @@ public class SearchResultsPage extends PageObject {
         }
     }
 
-    public int getMinPriceProduct() {
-        String price = searchResults.get(0).findBy(By.cssSelector(".price")).getText();
-        return Integer.parseInt(price);
+    public boolean checkPriceAscending() {
+        String firstProducPriceAsString = searchResults.get(0).findBy(By.cssSelector(".price"))
+                .getText().replace(",00 RON", "");
+        int priceFirstProduct = Integer.parseInt(firstProducPriceAsString);
+        String lastProductPriceAsString = searchResults.get(searchResults.size() - 1).findElement(By.cssSelector(".price"))
+                .getText().replace(",00 RON", "");
+        int priceLastProduct = Integer.parseInt(lastProductPriceAsString);
+        if (priceFirstProduct <= priceLastProduct) {
+            return true;
+        }
+        return false;
     }
 
+    public void clickViewDetails() {
+        clickOn(viewDetails);
+    }
 }
+

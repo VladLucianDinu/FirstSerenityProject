@@ -10,9 +10,10 @@ public class ProductSteps {
     private CartPage cartPage;
     private HomePage homePage;
     private ProductsGridPage productsGridPage;
+    private SearchResultsPage searchResultsPage;
 
     @Step
-    public void navigateToProductPage() {
+    public void selectProductFromCategory() {
         homePage.open();
         homePage.navigateToProductsGridPage();
         productsGridPage.clickProduct();
@@ -28,7 +29,15 @@ public class ProductSteps {
     @Step
     public void checkAddToCart(String expected) {
         String message = cartPage.getCartMessageParagraph();
-        Assert.assertEquals(expected, message);
+        boolean checkString = message.contains(expected);
+        Assert.assertTrue(checkString);
+    }
+
+    @Step
+    public void searchToProductPage(String searchText) {
+        homePage.open();
+        homePage.setSearchField(searchText);
+        searchResultsPage.clickViewDetails();
     }
 
 }

@@ -36,22 +36,22 @@ public class CheckoutPage extends PageObject {
     }
 
     public void clickFreeShippingButton() {
-//        waitFor(freeShippingButton);
+        waitFor(freeShippingButton);
         clickOn(freeShippingButton);
     }
 
     public void clickShoppingContinueButton() {
-//        waitFor(shoppingContinueButton);
+        waitFor(shoppingContinueButton);
         clickOn(shoppingContinueButton);
     }
 
     public void clickCashOnDeliveryContinueButton() {
-//        waitFor(cashOnDeliveryContinueButton);
+        waitFor(cashOnDeliveryContinueButton);
         clickOn(cashOnDeliveryContinueButton);
     }
 
     public void clickPlaceOrderButton() {
-//        waitFor(placeOrderButton);
+        waitFor(placeOrderButton);
         clickOn(placeOrderButton);
     }
 
